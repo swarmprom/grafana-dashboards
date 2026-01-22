@@ -18,7 +18,7 @@
     "editable": true,
     "fiscalYearStartMonth": 0,
     "graphTooltip": 1,
-    "id": 11,
+    "id": 6,
     "links": [],
     "panels": [
         {
@@ -659,7 +659,7 @@
         {
             "datasource": {
                 "type": "prometheus",
-                "uid": "prometheus"
+                "uid": "${datasource}"
             },
             "fieldConfig": {
                 "defaults": {
@@ -748,7 +748,7 @@
                 {
                     "datasource": {
                         "type": "prometheus",
-                        "uid": "prometheus"
+                        "uid": "${datasource}"
                     },
                     "editorMode": "code",
                     "expr": "sum(irate(container_cpu_system_seconds_total{job=~\"$job\", instance=~\"$instance\", name=~\".+\"}[$__rate_interval])) by (name) / scalar(count(count(container_cpu_usage_seconds_total{job=~\"$job\", instance=~\"$instance\", name=\"\"})))",
@@ -3199,7 +3199,7 @@
                     },
                     "editorMode": "code",
                     "exemplar": false,
-                    "expr": "(time() - container_start_time_seconds{job=~\"$job\", instance=~\"$instance\", name=~\".+\"})",
+                    "expr": "(time() - max(container_start_time_seconds{job=~\"$job\", instance=~\"$instance\", name=~\".+\"}) by (name, image, container_label_com_docker_compose_project, container_label_com_docker_stack_namespace))",
                     "format": "table",
                     "instant": true,
                     "legendFormat": "__auto",
@@ -3303,5 +3303,5 @@
     "timezone": "browser",
     "title": "cAdvisor Exporter Full",
     "uid": "gs4vc211",
-    "version": 2
+    "version": 1
 }
