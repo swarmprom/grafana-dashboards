@@ -2350,7 +2350,7 @@
                         "uid": "${datasource}"
                     },
                     "editorMode": "code",
-                    "expr": "irate(container_fs_reads_merged_total{job=~\"$job\", instance=~\"$instance\", name=~\".+\"}[$__rate_interval])",
+                    "expr": "sum(irate(container_fs_reads_merged_total{job=~\"$job\", instance=~\"$instance\", name=~\".+\"}[$__rate_interval])) by (name)",
                     "legendFormat": "Read - {{name}}",
                     "range": true,
                     "refId": "A"
@@ -2361,7 +2361,7 @@
                         "uid": "${datasource}"
                     },
                     "editorMode": "code",
-                    "expr": "irate(container_fs_writes_merged_total{job=~\"$job\", instance=~\"$instance\", name=~\".+\"}[$__rate_interval])",
+                    "expr": "sum(irate(container_fs_writes_merged_total{job=~\"$job\", instance=~\"$instance\", name=~\".+\"}[$__rate_interval])) by (name)",
                     "hide": false,
                     "instant": false,
                     "legendFormat": "Write - {{name}}",
@@ -3303,5 +3303,5 @@
     "timezone": "browser",
     "title": "cAdvisor Exporter Full",
     "uid": "gs4vc211",
-    "version": 1
+    "version": 2
 }
