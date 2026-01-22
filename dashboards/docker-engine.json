@@ -18,7 +18,7 @@
     "editable": true,
     "fiscalYearStartMonth": 0,
     "graphTooltip": 1,
-    "id": 3,
+    "id": 7,
     "links": [],
     "panels": [
         {
@@ -1188,94 +1188,6 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
             },
-            "fieldConfig": {
-                "defaults": {
-                    "custom": {
-                        "hideFrom": {
-                            "legend": false,
-                            "tooltip": false,
-                            "viz": false
-                        },
-                        "scaleDistribution": {
-                            "type": "linear"
-                        }
-                    },
-                    "unit": "s"
-                },
-                "overrides": []
-            },
-            "gridPos": {
-                "h": 8,
-                "w": 12,
-                "x": 0,
-                "y": 22
-            },
-            "id": 16,
-            "maxDataPoints": 500,
-            "options": {
-                "calculate": false,
-                "cellGap": 1,
-                "cellValues": {
-                    "unit": "s"
-                },
-                "color": {
-                    "exponent": 0.5,
-                    "fill": "dark-orange",
-                    "mode": "scheme",
-                    "reverse": false,
-                    "scale": "exponential",
-                    "scheme": "Spectral",
-                    "steps": 32
-                },
-                "exemplars": {
-                    "color": "rgba(255,0,255,0.7)"
-                },
-                "filterValues": {
-                    "le": 1e-9
-                },
-                "legend": {
-                    "show": true
-                },
-                "rowsFrame": {
-                    "layout": "auto"
-                },
-                "selectionMode": "x",
-                "showValue": "auto",
-                "tooltip": {
-                    "mode": "single",
-                    "showColorScale": false,
-                    "yHistogram": false
-                },
-                "yAxis": {
-                    "axisPlacement": "left",
-                    "reverse": false,
-                    "unit": "s"
-                }
-            },
-            "pluginVersion": "12.3.1",
-            "targets": [
-                {
-                    "datasource": {
-                        "type": "prometheus",
-                        "uid": "${datasource}"
-                    },
-                    "editorMode": "code",
-                    "expr": "histogram_quantile(0.95, sum(rate(engine_daemon_network_actions_seconds_bucket{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval])) by (le, action))",
-                    "format": "time_series",
-                    "fromExploreMetrics": false,
-                    "legendFormat": "__auto",
-                    "range": true,
-                    "refId": "A"
-                }
-            ],
-            "title": "engine_daemon_network_actions_seconds_bucket",
-            "type": "heatmap"
-        },
-        {
-            "datasource": {
-                "type": "prometheus",
-                "uid": "${datasource}"
-            },
             "description": "The number of seconds it takes to process each container action",
             "fieldConfig": {
                 "defaults": {
@@ -1296,7 +1208,7 @@
             "gridPos": {
                 "h": 8,
                 "w": 12,
-                "x": 12,
+                "x": 0,
                 "y": 22
             },
             "id": 44,
@@ -1355,7 +1267,7 @@
                         "uid": "${datasource}"
                     },
                     "editorMode": "code",
-                    "expr": "histogram_quantile(0.95, sum(rate(engine_daemon_container_actions_seconds_bucket{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval])) by (le, action))",
+                    "expr": "histogram_quantile(0.95, sum(increase(engine_daemon_container_actions_seconds_bucket{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval])) by (le, action))",
                     "format": "time_series",
                     "fromExploreMetrics": false,
                     "legendFormat": "__auto",
@@ -1364,6 +1276,94 @@
                 }
             ],
             "title": "engine_daemon_container_actions_seconds_bucket",
+            "type": "heatmap"
+        },
+        {
+            "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+            },
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {
+                        "hideFrom": {
+                            "legend": false,
+                            "tooltip": false,
+                            "viz": false
+                        },
+                        "scaleDistribution": {
+                            "type": "linear"
+                        }
+                    },
+                    "unit": "s"
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 8,
+                "w": 12,
+                "x": 12,
+                "y": 22
+            },
+            "id": 16,
+            "maxDataPoints": 500,
+            "options": {
+                "calculate": false,
+                "cellGap": 1,
+                "cellValues": {
+                    "unit": "s"
+                },
+                "color": {
+                    "exponent": 0.5,
+                    "fill": "dark-orange",
+                    "mode": "scheme",
+                    "reverse": false,
+                    "scale": "exponential",
+                    "scheme": "Spectral",
+                    "steps": 32
+                },
+                "exemplars": {
+                    "color": "rgba(255,0,255,0.7)"
+                },
+                "filterValues": {
+                    "le": 1e-9
+                },
+                "legend": {
+                    "show": true
+                },
+                "rowsFrame": {
+                    "layout": "auto"
+                },
+                "selectionMode": "x",
+                "showValue": "auto",
+                "tooltip": {
+                    "mode": "single",
+                    "showColorScale": false,
+                    "yHistogram": false
+                },
+                "yAxis": {
+                    "axisPlacement": "left",
+                    "reverse": false,
+                    "unit": "s"
+                }
+            },
+            "pluginVersion": "12.3.1",
+            "targets": [
+                {
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "${datasource}"
+                    },
+                    "editorMode": "code",
+                    "expr": "histogram_quantile(0.95, sum(increase(engine_daemon_network_actions_seconds_bucket{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval])) by (le, action))",
+                    "format": "time_series",
+                    "fromExploreMetrics": false,
+                    "legendFormat": "__auto",
+                    "range": true,
+                    "refId": "A"
+                }
+            ],
+            "title": "engine_daemon_network_actions_seconds_bucket",
             "type": "heatmap"
         },
         {
@@ -1450,7 +1450,7 @@
                         "uid": "${datasource}"
                     },
                     "editorMode": "code",
-                    "expr": "histogram_quantile(0.95, sum(rate(engine_daemon_image_actions_seconds_bucket{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval])) by (le, action))",
+                    "expr": "histogram_quantile(0.95, sum(increase(engine_daemon_image_actions_seconds_bucket{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval])) by (le, action))",
                     "format": "time_series",
                     "fromExploreMetrics": false,
                     "legendFormat": "__auto",
@@ -1539,7 +1539,7 @@
                         "uid": "${datasource}"
                     },
                     "editorMode": "code",
-                    "expr": "histogram_quantile(0.95, sum(rate(engine_daemon_host_info_functions_seconds_bucket{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval])) by (le, function))",
+                    "expr": "histogram_quantile(0.95, sum(increase(engine_daemon_host_info_functions_seconds_bucket{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval])) by (le, function))",
                     "format": "time_series",
                     "fromExploreMetrics": false,
                     "legendFormat": "__auto",
@@ -1668,7 +1668,7 @@
                         "uid": "${datasource}"
                     },
                     "editorMode": "code",
-                    "expr": "sum(rate(engine_daemon_events_subscribers_total{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval]))",
+                    "expr": "sum(increase(engine_daemon_events_subscribers_total{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval]))",
                     "legendFormat": "subscribers",
                     "range": true,
                     "refId": "A"
@@ -1755,7 +1755,7 @@
                         "uid": "${datasource}"
                     },
                     "editorMode": "code",
-                    "expr": "sum by (le) (rate(engine_daemon_health_check_start_duration_seconds_bucket{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval]))",
+                    "expr": "sum by (le) (increase(engine_daemon_health_check_start_duration_seconds_bucket{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval]))",
                     "format": "heatmap",
                     "fromExploreMetrics": false,
                     "range": true,
@@ -1883,7 +1883,7 @@
                         "uid": "${datasource}"
                     },
                     "editorMode": "code",
-                    "expr": "sum(rate(engine_daemon_events_total{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval]))",
+                    "expr": "sum(increase(engine_daemon_events_total{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval]))",
                     "legendFormat": "events",
                     "range": true,
                     "refId": "A"
@@ -2010,7 +2010,7 @@
                         "uid": "${datasource}"
                     },
                     "editorMode": "code",
-                    "expr": "sum(rate(engine_daemon_health_checks_total{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval]))",
+                    "expr": "sum(increase(engine_daemon_health_checks_total{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval]))",
                     "legendFormat": "health_checks",
                     "range": true,
                     "refId": "A"
@@ -2910,7 +2910,7 @@
                                 "uid": "${datasource}"
                             },
                             "editorMode": "code",
-                            "expr": "sum by (le) (rate(swarm_dispatcher_scheduling_delay_seconds_bucket{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval]))",
+                            "expr": "sum by (le) (increase(swarm_dispatcher_scheduling_delay_seconds_bucket{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval]))",
                             "format": "heatmap",
                             "fromExploreMetrics": false,
                             "range": true,
@@ -2998,7 +2998,7 @@
                                 "uid": "${datasource}"
                             },
                             "editorMode": "code",
-                            "expr": "sum by (le) (rate(swarm_raft_transaction_latency_seconds_bucket{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval]))",
+                            "expr": "sum by (le) (increase(swarm_raft_transaction_latency_seconds_bucket{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval]))",
                             "format": "heatmap",
                             "fromExploreMetrics": false,
                             "range": true,
@@ -3086,7 +3086,7 @@
                                 "uid": "${datasource}"
                             },
                             "editorMode": "code",
-                            "expr": "sum by (le) (rate(swarm_store_batch_latency_seconds_bucket{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval]))",
+                            "expr": "sum by (le) (increase(swarm_store_batch_latency_seconds_bucket{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval]))",
                             "format": "heatmap",
                             "fromExploreMetrics": false,
                             "range": true,
@@ -3174,7 +3174,7 @@
                                 "uid": "${datasource}"
                             },
                             "editorMode": "code",
-                            "expr": "sum by (le) (rate(swarm_store_lookup_latency_seconds_bucket{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval]))",
+                            "expr": "sum by (le) (increase(swarm_store_lookup_latency_seconds_bucket{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval]))",
                             "format": "heatmap",
                             "fromExploreMetrics": false,
                             "range": true,
@@ -3262,7 +3262,7 @@
                                 "uid": "${datasource}"
                             },
                             "editorMode": "code",
-                            "expr": "sum by (le) (rate(swarm_store_read_tx_latency_seconds_bucket{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval]))",
+                            "expr": "sum by (le) (increase(swarm_store_read_tx_latency_seconds_bucket{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval]))",
                             "format": "heatmap",
                             "fromExploreMetrics": false,
                             "range": true,
@@ -3350,7 +3350,7 @@
                                 "uid": "${datasource}"
                             },
                             "editorMode": "code",
-                            "expr": "sum by (le) (rate(swarm_store_write_tx_latency_seconds_bucket{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval]))",
+                            "expr": "sum by (le) (increase(swarm_store_write_tx_latency_seconds_bucket{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval]))",
                             "format": "heatmap",
                             "fromExploreMetrics": false,
                             "range": true,
@@ -3434,7 +3434,7 @@
                                 "uid": "${datasource}"
                             },
                             "editorMode": "code",
-                            "expr": "sum by (le) (rate(swarm_store_memory_store_lock_duration_seconds_bucket{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval]))",
+                            "expr": "sum by (le) (increase(swarm_store_memory_store_lock_duration_seconds_bucket{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval]))",
                             "format": "heatmap",
                             "fromExploreMetrics": false,
                             "range": true,
@@ -3522,7 +3522,7 @@
                                 "uid": "${datasource}"
                             },
                             "editorMode": "code",
-                            "expr": "sum by (le) (rate(swarm_raft_snapshot_latency_seconds_bucket{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval]))",
+                            "expr": "sum by (le) (increase(swarm_raft_snapshot_latency_seconds_bucket{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval]))",
                             "format": "heatmap",
                             "fromExploreMetrics": false,
                             "range": true,
@@ -3624,7 +3624,7 @@
                                 "uid": "${datasource}"
                             },
                             "editorMode": "code",
-                            "expr": "sum by (le) (rate(etcd_snap_fsync_duration_seconds_bucket{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval]))",
+                            "expr": "sum by (le) (increase(etcd_snap_fsync_duration_seconds_bucket{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval]))",
                             "format": "heatmap",
                             "fromExploreMetrics": false,
                             "range": true,
@@ -3712,7 +3712,7 @@
                                 "uid": "${datasource}"
                             },
                             "editorMode": "code",
-                            "expr": "sum by (le) (rate(etcd_snap_db_fsync_duration_seconds_bucket{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval]))",
+                            "expr": "sum by (le) (increase(etcd_snap_db_fsync_duration_seconds_bucket{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval]))",
                             "format": "heatmap",
                             "fromExploreMetrics": false,
                             "range": true,
@@ -3800,7 +3800,7 @@
                                 "uid": "${datasource}"
                             },
                             "editorMode": "code",
-                            "expr": "sum by (le) (rate(etcd_snap_db_save_total_duration_seconds_bucket{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval]))",
+                            "expr": "sum by (le) (increase(etcd_snap_db_save_total_duration_seconds_bucket{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval]))",
                             "format": "heatmap",
                             "fromExploreMetrics": false,
                             "range": true,
@@ -3888,7 +3888,7 @@
                                 "uid": "${datasource}"
                             },
                             "editorMode": "code",
-                            "expr": "sum by (le) (rate(etcd_disk_wal_fsync_duration_seconds_bucket{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval]))",
+                            "expr": "sum by (le) (increase(etcd_disk_wal_fsync_duration_seconds_bucket{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval]))",
                             "format": "heatmap",
                             "fromExploreMetrics": false,
                             "range": true,
@@ -3976,7 +3976,7 @@
                                 "uid": "${datasource}"
                             },
                             "editorMode": "code",
-                            "expr": "sum by (le) (rate(etcd_disk_wal_write_duration_seconds_bucket{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval]))",
+                            "expr": "sum by (le) (increase(etcd_disk_wal_write_duration_seconds_bucket{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval]))",
                             "format": "heatmap",
                             "fromExploreMetrics": false,
                             "range": true,
@@ -4052,5 +4052,5 @@
     "timezone": "browser",
     "title": "Docker Engine",
     "uid": "lfrky1cg",
-    "version": 37
+    "version": 2
 }
