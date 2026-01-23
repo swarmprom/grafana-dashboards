@@ -2033,12 +2033,1156 @@
             "type": "timeseries"
         },
         {
-            "collapsed": true,
+            "collapsed": false,
             "gridPos": {
                 "h": 1,
                 "w": 24,
                 "x": 0,
                 "y": 54
+            },
+            "id": 68,
+            "panels": [],
+            "title": "Docker Engine - Container Actions",
+            "type": "row"
+        },
+        {
+            "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+            },
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {
+                        "hideFrom": {
+                            "legend": false,
+                            "tooltip": false,
+                            "viz": false
+                        },
+                        "scaleDistribution": {
+                            "type": "linear"
+                        }
+                    },
+                    "unit": "s"
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 8,
+                "w": 12,
+                "x": 0,
+                "y": 55
+            },
+            "id": 62,
+            "maxDataPoints": 500,
+            "options": {
+                "calculate": false,
+                "cellGap": 1,
+                "cellValues": {},
+                "color": {
+                    "exponent": 0.5,
+                    "fill": "dark-orange",
+                    "mode": "scheme",
+                    "reverse": false,
+                    "scale": "exponential",
+                    "scheme": "Spectral",
+                    "steps": 32
+                },
+                "exemplars": {
+                    "color": "rgba(255,0,255,0.7)"
+                },
+                "filterValues": {
+                    "le": 1e-9
+                },
+                "legend": {
+                    "show": true
+                },
+                "rowsFrame": {
+                    "layout": "auto"
+                },
+                "selectionMode": "x",
+                "showValue": "auto",
+                "tooltip": {
+                    "mode": "single",
+                    "showColorScale": false,
+                    "yHistogram": false
+                },
+                "yAxis": {
+                    "axisPlacement": "left",
+                    "reverse": false
+                }
+            },
+            "pluginVersion": "12.3.1",
+            "targets": [
+                {
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "${datasource}"
+                    },
+                    "editorMode": "code",
+                    "expr": "sum by (le) (rate(engine_daemon_container_actions_seconds_bucket{job=~\"$job\", instance=~\"$instance\", action=\"create\"}[$__rate_interval]))",
+                    "format": "heatmap",
+                    "fromExploreMetrics": false,
+                    "legendFormat": "{{le}}",
+                    "range": true,
+                    "refId": "A"
+                }
+            ],
+            "title": "engine_daemon_container_actions_seconds_bucket{action=\"create\"}",
+            "type": "heatmap"
+        },
+        {
+            "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+            },
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {
+                        "hideFrom": {
+                            "legend": false,
+                            "tooltip": false,
+                            "viz": false
+                        },
+                        "scaleDistribution": {
+                            "type": "linear"
+                        }
+                    },
+                    "unit": "s"
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 8,
+                "w": 12,
+                "x": 12,
+                "y": 55
+            },
+            "id": 64,
+            "maxDataPoints": 500,
+            "options": {
+                "calculate": false,
+                "cellGap": 1,
+                "cellValues": {},
+                "color": {
+                    "exponent": 0.5,
+                    "fill": "dark-orange",
+                    "mode": "scheme",
+                    "reverse": false,
+                    "scale": "exponential",
+                    "scheme": "Spectral",
+                    "steps": 32
+                },
+                "exemplars": {
+                    "color": "rgba(255,0,255,0.7)"
+                },
+                "filterValues": {
+                    "le": 1e-9
+                },
+                "legend": {
+                    "show": true
+                },
+                "rowsFrame": {
+                    "layout": "auto"
+                },
+                "selectionMode": "x",
+                "showValue": "auto",
+                "tooltip": {
+                    "mode": "single",
+                    "showColorScale": false,
+                    "yHistogram": false
+                },
+                "yAxis": {
+                    "axisPlacement": "left",
+                    "reverse": false
+                }
+            },
+            "pluginVersion": "12.3.1",
+            "targets": [
+                {
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "${datasource}"
+                    },
+                    "editorMode": "code",
+                    "expr": "sum by (le) (rate(engine_daemon_container_actions_seconds_bucket{job=~\"$job\", instance=~\"$instance\", action=\"start\"}[$__rate_interval]))",
+                    "format": "heatmap",
+                    "fromExploreMetrics": false,
+                    "legendFormat": "{{let}}",
+                    "range": true,
+                    "refId": "A"
+                }
+            ],
+            "title": "engine_daemon_container_actions_seconds_bucket{action=\"start\"}",
+            "type": "heatmap"
+        },
+        {
+            "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+            },
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {
+                        "hideFrom": {
+                            "legend": false,
+                            "tooltip": false,
+                            "viz": false
+                        },
+                        "scaleDistribution": {
+                            "type": "linear"
+                        }
+                    },
+                    "unit": "s"
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 8,
+                "w": 12,
+                "x": 0,
+                "y": 63
+            },
+            "id": 65,
+            "maxDataPoints": 500,
+            "options": {
+                "calculate": false,
+                "cellGap": 1,
+                "cellValues": {},
+                "color": {
+                    "exponent": 0.5,
+                    "fill": "dark-orange",
+                    "mode": "scheme",
+                    "reverse": false,
+                    "scale": "exponential",
+                    "scheme": "Spectral",
+                    "steps": 32
+                },
+                "exemplars": {
+                    "color": "rgba(255,0,255,0.7)"
+                },
+                "filterValues": {
+                    "le": 1e-9
+                },
+                "legend": {
+                    "show": true
+                },
+                "rowsFrame": {
+                    "layout": "auto"
+                },
+                "selectionMode": "x",
+                "showValue": "auto",
+                "tooltip": {
+                    "mode": "single",
+                    "showColorScale": false,
+                    "yHistogram": false
+                },
+                "yAxis": {
+                    "axisPlacement": "left",
+                    "reverse": false
+                }
+            },
+            "pluginVersion": "12.3.1",
+            "targets": [
+                {
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "${datasource}"
+                    },
+                    "editorMode": "code",
+                    "expr": "sum by (le) (rate(engine_daemon_container_actions_seconds_bucket{job=~\"$job\", instance=~\"$instance\", action=\"delete\"}[$__rate_interval]))",
+                    "format": "heatmap",
+                    "fromExploreMetrics": false,
+                    "legendFormat": "{{le}}",
+                    "range": true,
+                    "refId": "A"
+                }
+            ],
+            "title": "engine_daemon_container_actions_seconds_bucket{action=\"delete\"}",
+            "type": "heatmap"
+        },
+        {
+            "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+            },
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {
+                        "hideFrom": {
+                            "legend": false,
+                            "tooltip": false,
+                            "viz": false
+                        },
+                        "scaleDistribution": {
+                            "type": "linear"
+                        }
+                    },
+                    "unit": "s"
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 8,
+                "w": 12,
+                "x": 12,
+                "y": 63
+            },
+            "id": 66,
+            "maxDataPoints": 500,
+            "options": {
+                "calculate": false,
+                "cellGap": 1,
+                "cellValues": {},
+                "color": {
+                    "exponent": 0.5,
+                    "fill": "dark-orange",
+                    "mode": "scheme",
+                    "reverse": false,
+                    "scale": "exponential",
+                    "scheme": "Spectral",
+                    "steps": 32
+                },
+                "exemplars": {
+                    "color": "rgba(255,0,255,0.7)"
+                },
+                "filterValues": {
+                    "le": 1e-9
+                },
+                "legend": {
+                    "show": true
+                },
+                "rowsFrame": {
+                    "layout": "auto"
+                },
+                "selectionMode": "x",
+                "showValue": "auto",
+                "tooltip": {
+                    "mode": "single",
+                    "showColorScale": false,
+                    "yHistogram": false
+                },
+                "yAxis": {
+                    "axisPlacement": "left",
+                    "reverse": false
+                }
+            },
+            "pluginVersion": "12.3.1",
+            "targets": [
+                {
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "${datasource}"
+                    },
+                    "editorMode": "code",
+                    "expr": "sum by (le) (rate(engine_daemon_container_actions_seconds_bucket{job=~\"$job\", instance=~\"$instance\", action=\"changes\"}[$__rate_interval]))",
+                    "format": "heatmap",
+                    "fromExploreMetrics": false,
+                    "legendFormat": "{{le}}",
+                    "range": true,
+                    "refId": "A"
+                }
+            ],
+            "title": "engine_daemon_container_actions_seconds_bucket{action=\"changes\"}",
+            "type": "heatmap"
+        },
+        {
+            "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+            },
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {
+                        "hideFrom": {
+                            "legend": false,
+                            "tooltip": false,
+                            "viz": false
+                        },
+                        "scaleDistribution": {
+                            "type": "linear"
+                        }
+                    },
+                    "unit": "s"
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 8,
+                "w": 12,
+                "x": 0,
+                "y": 71
+            },
+            "id": 67,
+            "maxDataPoints": 500,
+            "options": {
+                "calculate": false,
+                "cellGap": 1,
+                "cellValues": {},
+                "color": {
+                    "exponent": 0.5,
+                    "fill": "dark-orange",
+                    "mode": "scheme",
+                    "reverse": false,
+                    "scale": "exponential",
+                    "scheme": "Spectral",
+                    "steps": 32
+                },
+                "exemplars": {
+                    "color": "rgba(255,0,255,0.7)"
+                },
+                "filterValues": {
+                    "le": 1e-9
+                },
+                "legend": {
+                    "show": true
+                },
+                "rowsFrame": {
+                    "layout": "auto"
+                },
+                "selectionMode": "x",
+                "showValue": "auto",
+                "tooltip": {
+                    "mode": "single",
+                    "showColorScale": false,
+                    "yHistogram": false
+                },
+                "yAxis": {
+                    "axisPlacement": "left",
+                    "reverse": false
+                }
+            },
+            "pluginVersion": "12.3.1",
+            "targets": [
+                {
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "${datasource}"
+                    },
+                    "editorMode": "code",
+                    "expr": "sum by (le) (rate(engine_daemon_container_actions_seconds_bucket{job=~\"$job\", instance=~\"$instance\", action=\"commit\"}[$__rate_interval]))",
+                    "format": "heatmap",
+                    "fromExploreMetrics": false,
+                    "legendFormat": "{{le}}",
+                    "range": true,
+                    "refId": "A"
+                }
+            ],
+            "title": "engine_daemon_container_actions_seconds_bucket{action=\"commit\"}",
+            "type": "heatmap"
+        },
+        {
+            "collapsed": false,
+            "gridPos": {
+                "h": 1,
+                "w": 24,
+                "x": 0,
+                "y": 79
+            },
+            "id": 77,
+            "panels": [],
+            "title": "Docker Engine - Image Actions",
+            "type": "row"
+        },
+        {
+            "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+            },
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {
+                        "hideFrom": {
+                            "legend": false,
+                            "tooltip": false,
+                            "viz": false
+                        },
+                        "scaleDistribution": {
+                            "type": "linear"
+                        }
+                    },
+                    "unit": "s"
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 8,
+                "w": 12,
+                "x": 0,
+                "y": 80
+            },
+            "id": 75,
+            "maxDataPoints": 500,
+            "options": {
+                "calculate": false,
+                "cellGap": 1,
+                "cellValues": {},
+                "color": {
+                    "exponent": 0.5,
+                    "fill": "dark-orange",
+                    "mode": "scheme",
+                    "reverse": false,
+                    "scale": "exponential",
+                    "scheme": "Spectral",
+                    "steps": 32
+                },
+                "exemplars": {
+                    "color": "rgba(255,0,255,0.7)"
+                },
+                "filterValues": {
+                    "le": 1e-9
+                },
+                "legend": {
+                    "show": true
+                },
+                "rowsFrame": {
+                    "layout": "auto"
+                },
+                "selectionMode": "x",
+                "showValue": "auto",
+                "tooltip": {
+                    "mode": "single",
+                    "showColorScale": false,
+                    "yHistogram": false
+                },
+                "yAxis": {
+                    "axisPlacement": "left",
+                    "reverse": false
+                }
+            },
+            "pluginVersion": "12.3.1",
+            "targets": [
+                {
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "${datasource}"
+                    },
+                    "editorMode": "code",
+                    "expr": "sum by (le) (rate(engine_daemon_image_actions_seconds_bucket{job=~\"$job\", instance=~\"$instance\", action=\"pull\"}[$__rate_interval]))",
+                    "format": "heatmap",
+                    "fromExploreMetrics": false,
+                    "legendFormat": "{{le}}",
+                    "range": true,
+                    "refId": "A"
+                }
+            ],
+            "title": "engine_daemon_image_actions_seconds_bucket{action=\"pull\"}",
+            "type": "heatmap"
+        },
+        {
+            "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+            },
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {
+                        "hideFrom": {
+                            "legend": false,
+                            "tooltip": false,
+                            "viz": false
+                        },
+                        "scaleDistribution": {
+                            "type": "linear"
+                        }
+                    },
+                    "unit": "s"
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 8,
+                "w": 12,
+                "x": 12,
+                "y": 80
+            },
+            "id": 73,
+            "maxDataPoints": 500,
+            "options": {
+                "calculate": false,
+                "cellGap": 1,
+                "cellValues": {},
+                "color": {
+                    "exponent": 0.5,
+                    "fill": "dark-orange",
+                    "mode": "scheme",
+                    "reverse": false,
+                    "scale": "exponential",
+                    "scheme": "Spectral",
+                    "steps": 32
+                },
+                "exemplars": {
+                    "color": "rgba(255,0,255,0.7)"
+                },
+                "filterValues": {
+                    "le": 1e-9
+                },
+                "legend": {
+                    "show": true
+                },
+                "rowsFrame": {
+                    "layout": "auto"
+                },
+                "selectionMode": "x",
+                "showValue": "auto",
+                "tooltip": {
+                    "mode": "single",
+                    "showColorScale": false,
+                    "yHistogram": false
+                },
+                "yAxis": {
+                    "axisPlacement": "left",
+                    "reverse": false
+                }
+            },
+            "pluginVersion": "12.3.1",
+            "targets": [
+                {
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "${datasource}"
+                    },
+                    "editorMode": "code",
+                    "expr": "sum by (le) (rate(engine_daemon_image_actions_seconds_bucket{job=~\"$job\", instance=~\"$instance\", action=\"push\"}[$__rate_interval]))",
+                    "format": "heatmap",
+                    "fromExploreMetrics": false,
+                    "legendFormat": "{{le}}",
+                    "range": true,
+                    "refId": "A"
+                }
+            ],
+            "title": "engine_daemon_image_actions_seconds_bucket{action=\"push\"}",
+            "type": "heatmap"
+        },
+        {
+            "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+            },
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {
+                        "hideFrom": {
+                            "legend": false,
+                            "tooltip": false,
+                            "viz": false
+                        },
+                        "scaleDistribution": {
+                            "type": "linear"
+                        }
+                    },
+                    "unit": "s"
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 8,
+                "w": 12,
+                "x": 0,
+                "y": 88
+            },
+            "id": 74,
+            "maxDataPoints": 500,
+            "options": {
+                "calculate": false,
+                "cellGap": 1,
+                "cellValues": {},
+                "color": {
+                    "exponent": 0.5,
+                    "fill": "dark-orange",
+                    "mode": "scheme",
+                    "reverse": false,
+                    "scale": "exponential",
+                    "scheme": "Spectral",
+                    "steps": 32
+                },
+                "exemplars": {
+                    "color": "rgba(255,0,255,0.7)"
+                },
+                "filterValues": {
+                    "le": 1e-9
+                },
+                "legend": {
+                    "show": true
+                },
+                "rowsFrame": {
+                    "layout": "auto"
+                },
+                "selectionMode": "x",
+                "showValue": "auto",
+                "tooltip": {
+                    "mode": "single",
+                    "showColorScale": false,
+                    "yHistogram": false
+                },
+                "yAxis": {
+                    "axisPlacement": "left",
+                    "reverse": false
+                }
+            },
+            "pluginVersion": "12.3.1",
+            "targets": [
+                {
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "${datasource}"
+                    },
+                    "editorMode": "code",
+                    "expr": "sum by (le) (rate(engine_daemon_image_actions_seconds_bucket{job=~\"$job\", instance=~\"$instance\", action=\"delete\"}[$__rate_interval]))",
+                    "format": "heatmap",
+                    "fromExploreMetrics": false,
+                    "legendFormat": "{{le}}",
+                    "range": true,
+                    "refId": "A"
+                }
+            ],
+            "title": "engine_daemon_image_actions_seconds_bucket{action=\"delete\"}",
+            "type": "heatmap"
+        },
+        {
+            "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+            },
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {
+                        "hideFrom": {
+                            "legend": false,
+                            "tooltip": false,
+                            "viz": false
+                        },
+                        "scaleDistribution": {
+                            "type": "linear"
+                        }
+                    },
+                    "unit": "s"
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 8,
+                "w": 12,
+                "x": 12,
+                "y": 88
+            },
+            "id": 76,
+            "maxDataPoints": 500,
+            "options": {
+                "calculate": false,
+                "cellGap": 1,
+                "cellValues": {},
+                "color": {
+                    "exponent": 0.5,
+                    "fill": "dark-orange",
+                    "mode": "scheme",
+                    "reverse": false,
+                    "scale": "exponential",
+                    "scheme": "Spectral",
+                    "steps": 32
+                },
+                "exemplars": {
+                    "color": "rgba(255,0,255,0.7)"
+                },
+                "filterValues": {
+                    "le": 1e-9
+                },
+                "legend": {
+                    "show": true
+                },
+                "rowsFrame": {
+                    "layout": "auto"
+                },
+                "selectionMode": "x",
+                "showValue": "auto",
+                "tooltip": {
+                    "mode": "single",
+                    "showColorScale": false,
+                    "yHistogram": false
+                },
+                "yAxis": {
+                    "axisPlacement": "left",
+                    "reverse": false
+                }
+            },
+            "pluginVersion": "12.3.1",
+            "targets": [
+                {
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "${datasource}"
+                    },
+                    "editorMode": "code",
+                    "expr": "sum by (le) (rate(engine_daemon_image_actions_seconds_bucket{job=~\"$job\", instance=~\"$instance\", action=\"history\"}[$__rate_interval]))",
+                    "format": "heatmap",
+                    "fromExploreMetrics": false,
+                    "legendFormat": "{{le}}",
+                    "range": true,
+                    "refId": "A"
+                }
+            ],
+            "title": "engine_daemon_image_actions_seconds_bucket{action=\"history\"}",
+            "type": "heatmap"
+        },
+        {
+            "collapsed": false,
+            "gridPos": {
+                "h": 1,
+                "w": 24,
+                "x": 0,
+                "y": 96
+            },
+            "id": 72,
+            "panels": [],
+            "title": "Docker Engine - Network Actions",
+            "type": "row"
+        },
+        {
+            "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+            },
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {
+                        "hideFrom": {
+                            "legend": false,
+                            "tooltip": false,
+                            "viz": false
+                        },
+                        "scaleDistribution": {
+                            "type": "linear"
+                        }
+                    },
+                    "unit": "s"
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 8,
+                "w": 12,
+                "x": 0,
+                "y": 97
+            },
+            "id": 69,
+            "maxDataPoints": 500,
+            "options": {
+                "calculate": false,
+                "cellGap": 1,
+                "cellValues": {},
+                "color": {
+                    "exponent": 0.5,
+                    "fill": "dark-orange",
+                    "mode": "scheme",
+                    "reverse": false,
+                    "scale": "exponential",
+                    "scheme": "Spectral",
+                    "steps": 32
+                },
+                "exemplars": {
+                    "color": "rgba(255,0,255,0.7)"
+                },
+                "filterValues": {
+                    "le": 1e-9
+                },
+                "legend": {
+                    "show": true
+                },
+                "rowsFrame": {
+                    "layout": "auto"
+                },
+                "selectionMode": "x",
+                "showValue": "auto",
+                "tooltip": {
+                    "mode": "single",
+                    "showColorScale": false,
+                    "yHistogram": false
+                },
+                "yAxis": {
+                    "axisPlacement": "left",
+                    "reverse": false
+                }
+            },
+            "pluginVersion": "12.3.1",
+            "targets": [
+                {
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "${datasource}"
+                    },
+                    "editorMode": "code",
+                    "expr": "sum by (le) (rate(engine_daemon_network_actions_seconds_bucket{job=~\"$job\", instance=~\"$instance\", action=\"allocate\"}[$__rate_interval]))",
+                    "format": "heatmap",
+                    "fromExploreMetrics": false,
+                    "legendFormat": "{{le}}",
+                    "range": true,
+                    "refId": "A"
+                }
+            ],
+            "title": "engine_daemon_network_actions_seconds_bucket{action=\"allocate\"}",
+            "type": "heatmap"
+        },
+        {
+            "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+            },
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {
+                        "hideFrom": {
+                            "legend": false,
+                            "tooltip": false,
+                            "viz": false
+                        },
+                        "scaleDistribution": {
+                            "type": "linear"
+                        }
+                    },
+                    "unit": "s"
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 8,
+                "w": 12,
+                "x": 12,
+                "y": 97
+            },
+            "id": 70,
+            "maxDataPoints": 500,
+            "options": {
+                "calculate": false,
+                "cellGap": 1,
+                "cellValues": {},
+                "color": {
+                    "exponent": 0.5,
+                    "fill": "dark-orange",
+                    "mode": "scheme",
+                    "reverse": false,
+                    "scale": "exponential",
+                    "scheme": "Spectral",
+                    "steps": 32
+                },
+                "exemplars": {
+                    "color": "rgba(255,0,255,0.7)"
+                },
+                "filterValues": {
+                    "le": 1e-9
+                },
+                "legend": {
+                    "show": true
+                },
+                "rowsFrame": {
+                    "layout": "auto"
+                },
+                "selectionMode": "x",
+                "showValue": "auto",
+                "tooltip": {
+                    "mode": "single",
+                    "showColorScale": false,
+                    "yHistogram": false
+                },
+                "yAxis": {
+                    "axisPlacement": "left",
+                    "reverse": false
+                }
+            },
+            "pluginVersion": "12.3.1",
+            "targets": [
+                {
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "${datasource}"
+                    },
+                    "editorMode": "code",
+                    "expr": "sum by (le) (rate(engine_daemon_network_actions_seconds_bucket{job=~\"$job\", instance=~\"$instance\", action=\"connect\"}[$__rate_interval]))",
+                    "format": "heatmap",
+                    "fromExploreMetrics": false,
+                    "legendFormat": "{{le}}",
+                    "range": true,
+                    "refId": "A"
+                }
+            ],
+            "title": "engine_daemon_network_actions_seconds_bucket{action=\"connect\"}",
+            "type": "heatmap"
+        },
+        {
+            "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+            },
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {
+                        "hideFrom": {
+                            "legend": false,
+                            "tooltip": false,
+                            "viz": false
+                        },
+                        "scaleDistribution": {
+                            "type": "linear"
+                        }
+                    },
+                    "unit": "s"
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 8,
+                "w": 12,
+                "x": 0,
+                "y": 105
+            },
+            "id": 78,
+            "maxDataPoints": 500,
+            "options": {
+                "calculate": false,
+                "cellGap": 1,
+                "cellValues": {},
+                "color": {
+                    "exponent": 0.5,
+                    "fill": "dark-orange",
+                    "mode": "scheme",
+                    "reverse": false,
+                    "scale": "exponential",
+                    "scheme": "Spectral",
+                    "steps": 32
+                },
+                "exemplars": {
+                    "color": "rgba(255,0,255,0.7)"
+                },
+                "filterValues": {
+                    "le": 1e-9
+                },
+                "legend": {
+                    "show": true
+                },
+                "rowsFrame": {
+                    "layout": "auto"
+                },
+                "selectionMode": "x",
+                "showValue": "auto",
+                "tooltip": {
+                    "mode": "single",
+                    "showColorScale": false,
+                    "yHistogram": false
+                },
+                "yAxis": {
+                    "axisPlacement": "left",
+                    "reverse": false
+                }
+            },
+            "pluginVersion": "12.3.1",
+            "targets": [
+                {
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "${datasource}"
+                    },
+                    "editorMode": "code",
+                    "expr": "sum by (le) (rate(engine_daemon_network_actions_seconds_bucket{job=~\"$job\", instance=~\"$instance\", action=\"update\"}[$__rate_interval]))",
+                    "format": "heatmap",
+                    "fromExploreMetrics": false,
+                    "legendFormat": "{{le}}",
+                    "range": true,
+                    "refId": "A"
+                }
+            ],
+            "title": "engine_daemon_network_actions_seconds_bucket{action=\"update\"}",
+            "type": "heatmap"
+        },
+        {
+            "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+            },
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {
+                        "hideFrom": {
+                            "legend": false,
+                            "tooltip": false,
+                            "viz": false
+                        },
+                        "scaleDistribution": {
+                            "type": "linear"
+                        }
+                    },
+                    "unit": "s"
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 8,
+                "w": 12,
+                "x": 12,
+                "y": 105
+            },
+            "id": 71,
+            "maxDataPoints": 500,
+            "options": {
+                "calculate": false,
+                "cellGap": 1,
+                "cellValues": {},
+                "color": {
+                    "exponent": 0.5,
+                    "fill": "dark-orange",
+                    "mode": "scheme",
+                    "reverse": false,
+                    "scale": "exponential",
+                    "scheme": "Spectral",
+                    "steps": 32
+                },
+                "exemplars": {
+                    "color": "rgba(255,0,255,0.7)"
+                },
+                "filterValues": {
+                    "le": 1e-9
+                },
+                "legend": {
+                    "show": true
+                },
+                "rowsFrame": {
+                    "layout": "auto"
+                },
+                "selectionMode": "x",
+                "showValue": "auto",
+                "tooltip": {
+                    "mode": "single",
+                    "showColorScale": false,
+                    "yHistogram": false
+                },
+                "yAxis": {
+                    "axisPlacement": "left",
+                    "reverse": false
+                }
+            },
+            "pluginVersion": "12.3.1",
+            "targets": [
+                {
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "${datasource}"
+                    },
+                    "editorMode": "code",
+                    "expr": "sum by (le) (rate(engine_daemon_network_actions_seconds_bucket{job=~\"$job\", instance=~\"$instance\", action=\"release\"}[$__rate_interval]))",
+                    "format": "heatmap",
+                    "fromExploreMetrics": false,
+                    "legendFormat": "{{le}}",
+                    "range": true,
+                    "refId": "A"
+                }
+            ],
+            "title": "engine_daemon_network_actions_seconds_bucket{action=\"release\"}",
+            "type": "heatmap"
+        },
+        {
+            "collapsed": true,
+            "gridPos": {
+                "h": 1,
+                "w": 24,
+                "x": 0,
+                "y": 113
             },
             "id": 8,
             "panels": [
@@ -2183,7 +3327,7 @@
                         "h": 8,
                         "w": 12,
                         "x": 0,
-                        "y": 55
+                        "y": 114
                     },
                     "id": 1,
                     "options": {
@@ -2392,7 +3536,7 @@
                         "h": 8,
                         "w": 12,
                         "x": 12,
-                        "y": 55
+                        "y": 114
                     },
                     "id": 4,
                     "options": {
@@ -2495,7 +3639,7 @@
                         "h": 5,
                         "w": 12,
                         "x": 0,
-                        "y": 63
+                        "y": 122
                     },
                     "id": 39,
                     "options": {
@@ -2596,7 +3740,7 @@
                         "h": 5,
                         "w": 12,
                         "x": 12,
-                        "y": 63
+                        "y": 122
                     },
                     "id": 18,
                     "options": {
@@ -2697,7 +3841,7 @@
                         "h": 5,
                         "w": 12,
                         "x": 0,
-                        "y": 68
+                        "y": 127
                     },
                     "id": 21,
                     "options": {
@@ -2798,7 +3942,7 @@
                         "h": 5,
                         "w": 12,
                         "x": 12,
-                        "y": 68
+                        "y": 127
                     },
                     "id": 19,
                     "options": {
@@ -2858,7 +4002,7 @@
                         "h": 8,
                         "w": 12,
                         "x": 0,
-                        "y": 73
+                        "y": 132
                     },
                     "id": 13,
                     "maxDataPoints": 500,
@@ -2946,7 +4090,7 @@
                         "h": 8,
                         "w": 12,
                         "x": 12,
-                        "y": 73
+                        "y": 132
                     },
                     "id": 15,
                     "maxDataPoints": 500,
@@ -3034,7 +4178,7 @@
                         "h": 8,
                         "w": 12,
                         "x": 0,
-                        "y": 81
+                        "y": 140
                     },
                     "id": 9,
                     "maxDataPoints": 500,
@@ -3122,7 +4266,7 @@
                         "h": 8,
                         "w": 12,
                         "x": 12,
-                        "y": 81
+                        "y": 140
                     },
                     "id": 10,
                     "maxDataPoints": 500,
@@ -3210,7 +4354,7 @@
                         "h": 8,
                         "w": 12,
                         "x": 0,
-                        "y": 89
+                        "y": 148
                     },
                     "id": 11,
                     "maxDataPoints": 500,
@@ -3298,7 +4442,7 @@
                         "h": 8,
                         "w": 12,
                         "x": 12,
-                        "y": 89
+                        "y": 148
                     },
                     "id": 12,
                     "maxDataPoints": 500,
@@ -3385,7 +4529,7 @@
                         "h": 8,
                         "w": 12,
                         "x": 0,
-                        "y": 97
+                        "y": 156
                     },
                     "id": 22,
                     "maxDataPoints": 500,
@@ -3470,7 +4614,7 @@
                         "h": 8,
                         "w": 12,
                         "x": 12,
-                        "y": 97
+                        "y": 156
                     },
                     "id": 14,
                     "maxDataPoints": 500,
@@ -3542,7 +4686,7 @@
                 "h": 1,
                 "w": 24,
                 "x": 0,
-                "y": 55
+                "y": 114
             },
             "id": 28,
             "panels": [
@@ -3569,10 +4713,10 @@
                         "overrides": []
                     },
                     "gridPos": {
-                        "h": 7,
-                        "w": 8,
+                        "h": 8,
+                        "w": 12,
                         "x": 0,
-                        "y": 106
+                        "y": 115
                     },
                     "id": 33,
                     "maxDataPoints": 500,
@@ -3639,94 +4783,6 @@
                         "type": "prometheus",
                         "uid": "${datasource}"
                     },
-                    "description": "The latency distributions of fsyncing .snap.db file",
-                    "fieldConfig": {
-                        "defaults": {
-                            "custom": {
-                                "hideFrom": {
-                                    "legend": false,
-                                    "tooltip": false,
-                                    "viz": false
-                                },
-                                "scaleDistribution": {
-                                    "type": "linear"
-                                }
-                            },
-                            "unit": "s"
-                        },
-                        "overrides": []
-                    },
-                    "gridPos": {
-                        "h": 7,
-                        "w": 8,
-                        "x": 8,
-                        "y": 106
-                    },
-                    "id": 31,
-                    "maxDataPoints": 500,
-                    "options": {
-                        "calculate": false,
-                        "cellGap": 0,
-                        "cellValues": {
-                            "unit": "s"
-                        },
-                        "color": {
-                            "exponent": 0.5,
-                            "fill": "dark-orange",
-                            "mode": "scheme",
-                            "reverse": false,
-                            "scale": "exponential",
-                            "scheme": "Spectral",
-                            "steps": 32
-                        },
-                        "exemplars": {
-                            "color": "rgba(255,0,255,0.7)"
-                        },
-                        "filterValues": {
-                            "le": 1e-9
-                        },
-                        "legend": {
-                            "show": true
-                        },
-                        "rowsFrame": {
-                            "layout": "le"
-                        },
-                        "selectionMode": "x",
-                        "showValue": "auto",
-                        "tooltip": {
-                            "mode": "single",
-                            "showColorScale": false,
-                            "yHistogram": false
-                        },
-                        "yAxis": {
-                            "axisPlacement": "left",
-                            "reverse": false,
-                            "unit": "s"
-                        }
-                    },
-                    "pluginVersion": "12.3.1",
-                    "targets": [
-                        {
-                            "datasource": {
-                                "type": "prometheus",
-                                "uid": "${datasource}"
-                            },
-                            "editorMode": "code",
-                            "expr": "sum by (le) (increase(etcd_snap_db_fsync_duration_seconds_bucket{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval]))",
-                            "format": "heatmap",
-                            "fromExploreMetrics": false,
-                            "range": true,
-                            "refId": "A"
-                        }
-                    ],
-                    "title": "etcd_snap_db_fsync_duration_seconds_bucket",
-                    "type": "heatmap"
-                },
-                {
-                    "datasource": {
-                        "type": "prometheus",
-                        "uid": "${datasource}"
-                    },
                     "description": "The total latency distributions of v3 snapshot save",
                     "fieldConfig": {
                         "defaults": {
@@ -3745,10 +4801,10 @@
                         "overrides": []
                     },
                     "gridPos": {
-                        "h": 7,
-                        "w": 8,
-                        "x": 16,
-                        "y": 106
+                        "h": 8,
+                        "w": 12,
+                        "x": 12,
+                        "y": 115
                     },
                     "id": 32,
                     "maxDataPoints": 500,
@@ -3815,7 +4871,7 @@
                         "type": "prometheus",
                         "uid": "${datasource}"
                     },
-                    "description": "The latency distributions of fsync called by WAL.",
+                    "description": "The latency distributions of fsyncing .snap.db file",
                     "fieldConfig": {
                         "defaults": {
                             "custom": {
@@ -3836,9 +4892,9 @@
                         "h": 8,
                         "w": 12,
                         "x": 0,
-                        "y": 113
+                        "y": 123
                     },
-                    "id": 29,
+                    "id": 31,
                     "maxDataPoints": 500,
                     "options": {
                         "calculate": false,
@@ -3888,14 +4944,14 @@
                                 "uid": "${datasource}"
                             },
                             "editorMode": "code",
-                            "expr": "sum by (le) (increase(etcd_disk_wal_fsync_duration_seconds_bucket{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval]))",
+                            "expr": "sum by (le) (increase(etcd_snap_db_fsync_duration_seconds_bucket{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval]))",
                             "format": "heatmap",
                             "fromExploreMetrics": false,
                             "range": true,
                             "refId": "A"
                         }
                     ],
-                    "title": "etcd_disk_wal_fsync_duration_seconds_bucket",
+                    "title": "etcd_snap_db_fsync_duration_seconds_bucket",
                     "type": "heatmap"
                 },
                 {
@@ -3924,7 +4980,7 @@
                         "h": 8,
                         "w": 12,
                         "x": 12,
-                        "y": 113
+                        "y": 123
                     },
                     "id": 30,
                     "maxDataPoints": 500,
@@ -3985,9 +5041,97 @@
                     ],
                     "title": "etcd_disk_wal_write_duration_seconds_bucket",
                     "type": "heatmap"
+                },
+                {
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "${datasource}"
+                    },
+                    "description": "The latency distributions of fsync called by WAL.",
+                    "fieldConfig": {
+                        "defaults": {
+                            "custom": {
+                                "hideFrom": {
+                                    "legend": false,
+                                    "tooltip": false,
+                                    "viz": false
+                                },
+                                "scaleDistribution": {
+                                    "type": "linear"
+                                }
+                            },
+                            "unit": "s"
+                        },
+                        "overrides": []
+                    },
+                    "gridPos": {
+                        "h": 8,
+                        "w": 12,
+                        "x": 0,
+                        "y": 131
+                    },
+                    "id": 29,
+                    "maxDataPoints": 500,
+                    "options": {
+                        "calculate": false,
+                        "cellGap": 0,
+                        "cellValues": {
+                            "unit": "s"
+                        },
+                        "color": {
+                            "exponent": 0.5,
+                            "fill": "dark-orange",
+                            "mode": "scheme",
+                            "reverse": false,
+                            "scale": "exponential",
+                            "scheme": "Spectral",
+                            "steps": 32
+                        },
+                        "exemplars": {
+                            "color": "rgba(255,0,255,0.7)"
+                        },
+                        "filterValues": {
+                            "le": 1e-9
+                        },
+                        "legend": {
+                            "show": true
+                        },
+                        "rowsFrame": {
+                            "layout": "le"
+                        },
+                        "selectionMode": "x",
+                        "showValue": "auto",
+                        "tooltip": {
+                            "mode": "single",
+                            "showColorScale": false,
+                            "yHistogram": false
+                        },
+                        "yAxis": {
+                            "axisPlacement": "left",
+                            "reverse": false,
+                            "unit": "s"
+                        }
+                    },
+                    "pluginVersion": "12.3.1",
+                    "targets": [
+                        {
+                            "datasource": {
+                                "type": "prometheus",
+                                "uid": "${datasource}"
+                            },
+                            "editorMode": "code",
+                            "expr": "sum by (le) (increase(etcd_disk_wal_fsync_duration_seconds_bucket{job=~\"$job\", instance=~\"$instance\"}[$__rate_interval]))",
+                            "format": "heatmap",
+                            "fromExploreMetrics": false,
+                            "range": true,
+                            "refId": "A"
+                        }
+                    ],
+                    "title": "etcd_disk_wal_fsync_duration_seconds_bucket",
+                    "type": "heatmap"
                 }
             ],
-            "title": "Docker Swarm (etcd)",
+            "title": "Docker Swarm - etcd",
             "type": "row"
         }
     ],
