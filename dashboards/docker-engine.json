@@ -18,7 +18,7 @@
     "editable": true,
     "fiscalYearStartMonth": 0,
     "graphTooltip": 1,
-    "id": 7,
+    "id": 12,
     "links": [],
     "panels": [
         {
@@ -1221,7 +1221,7 @@
                         "value": ""
                     }
                 },
-                "cellGap": 1,
+                "cellGap": 0,
                 "cellValues": {
                     "unit": "s"
                 },
@@ -1309,7 +1309,7 @@
             "maxDataPoints": 500,
             "options": {
                 "calculate": false,
-                "cellGap": 1,
+                "cellGap": 0,
                 "cellValues": {
                     "unit": "s"
                 },
@@ -1404,7 +1404,7 @@
                         "value": ""
                     }
                 },
-                "cellGap": 1,
+                "cellGap": 0,
                 "cellValues": {
                     "unit": "s"
                 },
@@ -1493,7 +1493,7 @@
             "maxDataPoints": 500,
             "options": {
                 "calculate": false,
-                "cellGap": 1,
+                "cellGap": 0,
                 "cellValues": {
                     "unit": "s"
                 },
@@ -1709,7 +1709,7 @@
             "maxDataPoints": 500,
             "options": {
                 "calculate": false,
-                "cellGap": 1,
+                "cellGap": 0,
                 "cellValues": {
                     "unit": "s"
                 },
@@ -2864,7 +2864,7 @@
                     "maxDataPoints": 500,
                     "options": {
                         "calculate": false,
-                        "cellGap": 1,
+                        "cellGap": 0,
                         "cellValues": {
                             "unit": "s"
                         },
@@ -2952,7 +2952,7 @@
                     "maxDataPoints": 500,
                     "options": {
                         "calculate": false,
-                        "cellGap": 1,
+                        "cellGap": 0,
                         "cellValues": {
                             "unit": "s"
                         },
@@ -3040,7 +3040,7 @@
                     "maxDataPoints": 500,
                     "options": {
                         "calculate": false,
-                        "cellGap": 1,
+                        "cellGap": 0,
                         "cellValues": {
                             "unit": "s"
                         },
@@ -3128,7 +3128,7 @@
                     "maxDataPoints": 500,
                     "options": {
                         "calculate": false,
-                        "cellGap": 1,
+                        "cellGap": 0,
                         "cellValues": {
                             "unit": "s"
                         },
@@ -3216,7 +3216,7 @@
                     "maxDataPoints": 500,
                     "options": {
                         "calculate": false,
-                        "cellGap": 1,
+                        "cellGap": 0,
                         "cellValues": {
                             "unit": "s"
                         },
@@ -3304,7 +3304,7 @@
                     "maxDataPoints": 500,
                     "options": {
                         "calculate": false,
-                        "cellGap": 1,
+                        "cellGap": 0,
                         "cellValues": {
                             "unit": "s"
                         },
@@ -3391,7 +3391,7 @@
                     "maxDataPoints": 500,
                     "options": {
                         "calculate": false,
-                        "cellGap": 1,
+                        "cellGap": 0,
                         "cellValues": {},
                         "color": {
                             "exponent": 0.5,
@@ -3476,7 +3476,7 @@
                     "maxDataPoints": 500,
                     "options": {
                         "calculate": false,
-                        "cellGap": 1,
+                        "cellGap": 0,
                         "cellValues": {
                             "unit": "s"
                         },
@@ -3578,7 +3578,7 @@
                     "maxDataPoints": 500,
                     "options": {
                         "calculate": false,
-                        "cellGap": 1,
+                        "cellGap": 0,
                         "cellValues": {
                             "unit": "s"
                         },
@@ -3666,7 +3666,7 @@
                     "maxDataPoints": 500,
                     "options": {
                         "calculate": false,
-                        "cellGap": 1,
+                        "cellGap": 0,
                         "cellValues": {
                             "unit": "s"
                         },
@@ -3754,7 +3754,7 @@
                     "maxDataPoints": 500,
                     "options": {
                         "calculate": false,
-                        "cellGap": 1,
+                        "cellGap": 0,
                         "cellValues": {
                             "unit": "s"
                         },
@@ -3842,7 +3842,7 @@
                     "maxDataPoints": 500,
                     "options": {
                         "calculate": false,
-                        "cellGap": 1,
+                        "cellGap": 0,
                         "cellValues": {
                             "unit": "s"
                         },
@@ -3930,7 +3930,7 @@
                     "maxDataPoints": 500,
                     "options": {
                         "calculate": false,
-                        "cellGap": 1,
+                        "cellGap": 0,
                         "cellValues": {
                             "unit": "s"
                         },
@@ -4052,5 +4052,5 @@
     "timezone": "browser",
     "title": "Docker Engine",
     "uid": "lfrky1cg",
-    "version": 2
+    "version": 1
 }
