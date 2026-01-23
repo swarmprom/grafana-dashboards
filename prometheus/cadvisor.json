@@ -18,7 +18,7 @@
     "editable": true,
     "fiscalYearStartMonth": 0,
     "graphTooltip": 1,
-    "id": 6,
+    "id": 8,
     "links": [],
     "panels": [
         {
@@ -2430,7 +2430,7 @@
                             }
                         ]
                     },
-                    "unit": "s"
+                    "unit": "Bps"
                 },
                 "overrides": [
                     {
@@ -2453,7 +2453,7 @@
                 "x": 12,
                 "y": 87
             },
-            "id": 23,
+            "id": 22,
             "options": {
                 "legend": {
                     "calcs": [
@@ -2479,7 +2479,7 @@
                         "uid": "${datasource}"
                     },
                     "editorMode": "code",
-                    "expr": "sum(irate(container_fs_read_seconds_total{job=~\"$job\", instance=~\"$instance\", name=~\".+\"}[$__rate_interval]) / irate(container_fs_reads_total{job=~\"$job\", instance=~\"$instance\", name=~\".+\"}[$__rate_interval])) by (name)",
+                    "expr": "sum(irate(container_fs_sector_reads_total{job=~\"$job\", instance=~\"$instance\", name=~\".+\"}[$__rate_interval])) by (name)",
                     "legendFormat": "Read - {{name}}",
                     "range": true,
                     "refId": "A"
@@ -2490,7 +2490,7 @@
                         "uid": "${datasource}"
                     },
                     "editorMode": "code",
-                    "expr": "sum(irate(container_fs_write_seconds_total{job=~\"$job\", instance=~\"$instance\", name=~\".+\"}[$__rate_interval]) / irate(container_fs_writes_total{job=~\"$job\", instance=~\"$instance\", name=~\".+\"}[$__rate_interval])) by (name)",
+                    "expr": "sum(irate(container_fs_sector_writes_total{job=~\"$job\", instance=~\"$instance\", name=~\".+\"}[$__rate_interval])) by (name)",
                     "hide": false,
                     "instant": false,
                     "legendFormat": "Write - {{name}}",
@@ -2498,7 +2498,7 @@
                     "refId": "B"
                 }
             ],
-            "title": "Disk Average Wait Time",
+            "title": "Disk Read/Write Sector",
             "type": "timeseries"
         },
         {
@@ -2559,7 +2559,7 @@
                             }
                         ]
                     },
-                    "unit": "Bps"
+                    "unit": "s"
                 },
                 "overrides": [
                     {
@@ -2582,7 +2582,7 @@
                 "x": 0,
                 "y": 97
             },
-            "id": 22,
+            "id": 23,
             "options": {
                 "legend": {
                     "calcs": [
@@ -2608,7 +2608,7 @@
                         "uid": "${datasource}"
                     },
                     "editorMode": "code",
-                    "expr": "sum(irate(container_fs_sector_reads_total{job=~\"$job\", instance=~\"$instance\", name=~\".+\"}[$__rate_interval])) by (name)",
+                    "expr": "sum(irate(container_fs_read_seconds_total{job=~\"$job\", instance=~\"$instance\", name=~\".+\"}[$__rate_interval]) / irate(container_fs_reads_total{job=~\"$job\", instance=~\"$instance\", name=~\".+\"}[$__rate_interval])) by (name)",
                     "legendFormat": "Read - {{name}}",
                     "range": true,
                     "refId": "A"
@@ -2619,7 +2619,7 @@
                         "uid": "${datasource}"
                     },
                     "editorMode": "code",
-                    "expr": "sum(irate(container_fs_sector_writes_total{job=~\"$job\", instance=~\"$instance\", name=~\".+\"}[$__rate_interval])) by (name)",
+                    "expr": "sum(irate(container_fs_write_seconds_total{job=~\"$job\", instance=~\"$instance\", name=~\".+\"}[$__rate_interval]) / irate(container_fs_writes_total{job=~\"$job\", instance=~\"$instance\", name=~\".+\"}[$__rate_interval])) by (name)",
                     "hide": false,
                     "instant": false,
                     "legendFormat": "Write - {{name}}",
@@ -2627,7 +2627,7 @@
                     "refId": "B"
                 }
             ],
-            "title": "Disk Read/Write Sector",
+            "title": "Disk Average Wait Time",
             "type": "timeseries"
         },
         {
